@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Code, BrainCircuit, Layout, Cpu, Terminal, Trophy } from 'lucide-react';
 
 export default function Skills() {
@@ -78,7 +79,13 @@ export default function Skills() {
 
   return (
     <section id="skills" className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-3xl mx-auto mb-16"
+      >
         <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-3">
           <span className="w-8 h-px bg-cyan-500/60"></span>
           Technical Arsenal
@@ -90,15 +97,20 @@ export default function Skills() {
         <p className="text-slate-400 text-sm sm:text-base">
           A comprehensive breakdown of my engineering capabilities across artificial intelligence, core computer science, systems, and modern frontend interfaces.
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((cat, idx) => {
           const Icon = cat.icon;
           return (
-            <div
+            <motion.div
               key={idx}
-              className="glass-card rounded-2xl p-6 transition-all hover:-translate-y-1"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: 'easeOut' }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="glass-card rounded-2xl p-6 transition-colors"
             >
               <div
                 className={`w-12 h-12 rounded-xl ${cat.bgGlow} border flex items-center justify-center mb-5 ${cat.iconColor}`}
@@ -109,15 +121,16 @@ export default function Skills() {
               <p className="text-xs text-slate-400 mb-4">{cat.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill, sIdx) => (
-                  <span
+                  <motion.span
                     key={sIdx}
+                    whileHover={{ scale: 1.05 }}
                     className={`px-3 py-1 rounded-lg text-xs font-mono border ${cat.tagColor}`}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

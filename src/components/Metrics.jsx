@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Metrics() {
   const metrics = [
@@ -32,9 +33,14 @@ export default function Metrics() {
     <section className="max-w-6xl mx-auto px-5 sm:px-8 -mt-6 mb-24">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {metrics.map((metric, idx) => (
-          <div
+          <motion.div
             key={idx}
-            className="glass-card rounded-2xl p-6 text-center group hover:bg-slate-900/80 transition-all"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            className="glass-card rounded-2xl p-6 text-center group hover:bg-slate-900/80 transition-colors"
           >
             <div
               className={`text-3xl sm:text-4xl font-extrabold font-mono bg-gradient-to-r ${metric.gradient} bg-clip-text text-transparent mb-1`}
@@ -47,7 +53,7 @@ export default function Metrics() {
             <div className="text-[11px] text-slate-500">
               {metric.sublabel}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

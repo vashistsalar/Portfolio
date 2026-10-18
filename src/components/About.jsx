@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
 export default function About() {
@@ -30,7 +31,13 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
         {/* Left: Bio & Highlights */}
-        <div className="lg:col-span-7 space-y-6">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="lg:col-span-7 space-y-6"
+        >
           <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-mono tracking-widest uppercase">
             <span className="w-8 h-px bg-cyan-500/60"></span>
             Profile Summary
@@ -51,8 +58,9 @@ export default function About() {
           {/* Highlights grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
             {highlights.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                whileHover={{ scale: 1.02 }}
                 className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800"
               >
                 <CheckCircle2 className={`w-5 h-5 ${item.color} mt-0.5 shrink-0`} />
@@ -60,19 +68,25 @@ export default function About() {
                   <h4 className="text-sm font-semibold text-white">{item.title}</h4>
                   <p className="text-xs text-slate-400">{item.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Right: Code Block Card */}
-        <div className="lg:col-span-5">
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          className="lg:col-span-5"
+        >
           <div className="rounded-2xl glass-card p-6 border-slate-800 shadow-2xl relative overflow-hidden">
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
                 <span className="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                 <span className="text-xs font-mono text-slate-400 ml-2">engineer_profile.json</span>
               </div>
               <span className="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60">
@@ -97,7 +111,7 @@ export default function About() {
 }`}</code>
             </pre>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

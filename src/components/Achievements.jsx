@@ -1,9 +1,16 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Achievements() {
   return (
     <section id="achievements" className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-3xl mx-auto mb-16"
+      >
         <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-3">
           <span className="w-8 h-px bg-cyan-500/60"></span>
           Competitive Milestones
@@ -15,12 +22,19 @@ export default function Achievements() {
         <p className="text-slate-400 text-sm sm:text-base">
           Proven competitive track record solving challenging algorithmic problems under tight constraints.
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Codeforces Card */}
-        <div className="glass-card rounded-3xl p-8 border-slate-800 relative overflow-hidden group">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          whileHover={{ y: -6, transition: { duration: 0.2 } }}
+          className="glass-card rounded-3xl p-8 border-slate-800 relative overflow-hidden group hover:border-cyan-500/40 transition-colors"
+        >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">
@@ -44,10 +58,17 @@ export default function Achievements() {
             <span className="text-slate-400">Platform Global Ranking:</span>
             <span className="text-cyan-400 font-semibold text-sm">3,272</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* LeetCode & CodeChef Card */}
-        <div className="glass-card rounded-3xl p-8 border-slate-800 relative overflow-hidden group">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          whileHover={{ y: -6, transition: { duration: 0.2 } }}
+          className="glass-card rounded-3xl p-8 border-slate-800 relative overflow-hidden group hover:border-indigo-500/40 transition-colors"
+        >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold">
@@ -81,7 +102,7 @@ export default function Achievements() {
               <div className="text-[10px] text-slate-500">Contest Ready</div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

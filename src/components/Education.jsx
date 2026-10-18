@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Education() {
   const history = [
@@ -36,7 +37,13 @@ export default function Education() {
 
   return (
     <section id="education" className="max-w-4xl mx-auto px-5 sm:px-8 py-20">
-      <div className="text-center max-w-2xl mx-auto mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-2xl mx-auto mb-16"
+      >
         <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-3">
           <span className="w-8 h-px bg-cyan-500/60"></span>
           Academic Foundation
@@ -45,11 +52,18 @@ export default function Education() {
         <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
           Education History
         </h2>
-      </div>
+      </motion.div>
 
       <div className="relative border-l border-slate-800 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-12">
         {history.map((item, idx) => (
-          <div key={idx} className="relative group">
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5, delay: idx * 0.15, ease: 'easeOut' }}
+            className="relative group"
+          >
             <div
               className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full ${item.dotColor} border-4 border-[#07090e] group-hover:scale-125 transition-transform`}
             ></div>
@@ -71,7 +85,7 @@ export default function Education() {
                 <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
               )}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

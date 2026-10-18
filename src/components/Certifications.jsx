@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Award, Cloud, Cpu, Check } from 'lucide-react';
 
 export default function Certifications() {
@@ -34,7 +35,13 @@ export default function Certifications() {
 
   return (
     <section id="certifications" className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-3xl mx-auto mb-16"
+      >
         <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-3">
           <span className="w-8 h-px bg-cyan-500/60"></span>
           Credentials
@@ -46,15 +53,20 @@ export default function Certifications() {
         <p className="text-slate-400 text-sm sm:text-base">
           Accredited certifications from Microsoft, Google Cloud, and specialized AI institutes.
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {certs.map((cert, idx) => {
           const Icon = cert.icon;
           return (
-            <div
+            <motion.div
               key={idx}
-              className="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between hover:border-cyan-500/40 transition-all"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between hover:border-cyan-500/40 transition-colors"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -78,7 +90,7 @@ export default function Certifications() {
                   <Check className="w-3.5 h-3.5" /> Verified
                 </span>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

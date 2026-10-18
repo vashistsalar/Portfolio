@@ -1,10 +1,17 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 export default function Projects() {
   return (
     <section id="projects" className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6"
+      >
         <div>
           <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-3">
             <span className="w-8 h-px bg-cyan-500/60"></span>
@@ -17,12 +24,19 @@ export default function Projects() {
         <p className="text-slate-400 text-sm max-w-md">
           A collection of machine learning copilots, algorithm visualizers, and academic benchmarking research.
         </p>
-      </div>
+      </motion.div>
 
       <div className="space-y-8">
 
         {/* Project 1: Cynbit AI Project Copilot */}
-        <div className="glass-card rounded-3xl p-8 lg:p-10 border-slate-800 transition-all hover:border-cyan-500/40">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+          className="glass-card rounded-3xl p-8 lg:p-10 border-slate-800 transition-colors hover:border-cyan-500/40"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-3">
@@ -64,10 +78,17 @@ export default function Projects() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Project 2: Sorting Algorithm Visualizer */}
-        <div className="glass-card rounded-3xl p-8 lg:p-10 border-slate-800 transition-all hover:border-cyan-500/40">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+          className="glass-card rounded-3xl p-8 lg:p-10 border-slate-800 transition-colors hover:border-teal-500/40"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-3">
@@ -107,7 +128,7 @@ export default function Projects() {
                   <div className="text-xs text-slate-400">Frame lag reduction via React state optimization</div>
                 </div>
                 <div>
-                  <div class="text-2xl font-bold font-mono text-cyan-400">90%</div>
+                  <div className="text-2xl font-bold font-mono text-cyan-400">90%</div>
                   <div className="text-xs text-slate-400">Positive peer learning rate</div>
                 </div>
                 <div>
@@ -117,10 +138,17 @@ export default function Projects() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Project 3: Research Paper on ML vs. DL */}
-        <div className="glass-card rounded-3xl p-8 lg:p-10 border-slate-800 transition-all hover:border-indigo-500/40">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+          className="glass-card rounded-3xl p-8 lg:p-10 border-slate-800 transition-colors hover:border-indigo-500/40"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-3">
@@ -162,7 +190,7 @@ export default function Projects() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
