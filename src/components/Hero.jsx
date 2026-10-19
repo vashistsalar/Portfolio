@@ -34,9 +34,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight"
         >
-          Engineering Intelligent Systems & <br />
+          Hi, I'm{' '}
           <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
-            Algorithmic Solutions
+            Vashist Salar
           </span>
         </motion.h1>
 
@@ -47,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className="text-lg sm:text-xl text-slate-300 max-w-2xl font-light mb-8 leading-relaxed"
         >
-          Hi, I'm <strong className="text-white font-semibold">Vashist Salar</strong> — an Aspiring AI/ML Engineer and final-year Computer Science (AI & ML with IBM) undergraduate. Passionate about machine learning pipelines, deep learning research, and high-performance algorithms.
+          Aspiring <strong className="text-white font-semibold">AI/ML Engineer</strong> and final-year Computer Science (AI & ML with IBM) undergraduate. Passionate about machine learning pipelines, deep learning research, and high-performance algorithms.
         </motion.p>
 
         {/* CTA Buttons */}
